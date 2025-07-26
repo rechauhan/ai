@@ -28,48 +28,48 @@
       <td>label</td>
       <td>Email Address</td>
       <td>Compliant</td>
-      <td>The element's text contains the required phrase 'Email Address', which meets the policy requirement.</td>
-      <td>None, as the element is compliant with the given requirements.</td>
+      <td>The label element contains the required phrase 'Email Address', which meets the policy requirement.</td>
+      <td>None.</td>
     </tr>
     
     <tr class="compliant">
       <td>label</td>
       <td>User Role</td>
       <td>Compliant</td>
-      <td>The label's text does not contain either of the required phrases 'Email Address' or 'User Role'.</td>
-      <td>None</td>
+      <td>The element text "User Role" does not contain any prohibited terms from the list. Additionally, it contains the required phrase "User Role", meeting all the specified requirements.</td>
+      <td>None (the element is compliant with all the given guidelines)</td>
     </tr>
     
     <tr class="non-compliant">
       <td>button</td>
       <td>Submit Now</td>
       <td>Non-Compliant</td>
-      <td>Prohibited term 'Submit Now' found in element text. This term is not allowed by company policy.</td>
-      <td>Remove or replace 'Submit Now'.</td>
+      <td>The element's text contains the prohibited term 'Submit Now', which is not allowed according to the policy.</td>
+      <td>Update the button's text to exclude the prohibited term 'Submit Now'. A revised version could be 'Save Changes' or another suitable alternative.</td>
     </tr>
     
-    <tr class="non-compliant">
+    <tr class="compliant">
       <td>option</td>
       <td>Admin</td>
-      <td>Non-Compliant</td>
-      <td>The element's text 'Admin' does not contain either of the required phrases ['Email Address', 'User Role']. Furthermore, since this is an option in a select element, it doesn't have associated labels as per the accessibility guidelines.</td>
-      <td>1. Ensure that all options in the select element are labeled with descriptions that include either 'Email Address' or 'User Role'.</td>
+      <td>Compliant</td>
+      <td>The element text 'Admin' does not contain any of the prohibited terms ['Superuser', 'Submit Now'] and also does not miss any of the required phrases ['Email Address', 'User Role']. However, it's recommended to ensure sufficient color contrast between the selected option 'Admin' and the background.</td>
+      <td>- Add an associated label for the select option 'Admin'.</td>
     </tr>
     
     <tr class="non-compliant">
       <td>option</td>
       <td>Superuser</td>
       <td>Non-Compliant</td>
-      <td>Prohibited term 'Superuser' found in element text. This term is not allowed by company policy.</td>
-      <td>Remove or replace 'Superuser'.</td>
+      <td>The element's text contains a prohibited term 'Superuser', which is not allowed according to the policy.</td>
+      <td>Update the element's text to remove the prohibited term 'Superuser'. For example, change it to "User Role" or any other alternative that does not include the forbidden term.</td>
     </tr>
     
-    <tr class="non-compliant">
+    <tr class="compliant">
       <td>option</td>
       <td>Guest</td>
-      <td>Non-Compliant</td>
-      <td>The element text 'Guest' does not contain either of the required phrases ['Email Address', 'User Role'].</td>
-      <td>Update the element text to include one of the required phrases, such as "No Email Address" or a clear indication of user role (e.g., "Public User").</td>
+      <td>Compliant</td>
+      <td>The element text "Guest" does not contain any prohibited terms from the list. It also does not contain any required phrases. However, it's essential to ensure accessibility guidelines are met.</td>
+      <td>None for the current issue, but consider adding an accessible label or alternative text to the select element to meet the 'All form controls must have associated labels' guideline.</td>
     </tr>
     
   </table>

@@ -43,6 +43,44 @@ def extract_ui_elements(html_path):
     return elements
 # Step 2: Validate with Ollama API
 def validate_with_llm(element, policy):
+    # Use LLM for all compliance checks, including prohibited terms
+    prompt = f"""
+You are a UI compliance auditor. For the following UI element, check if its text contains any prohibited terms from this list: {policy['prohibited_terms']}.
+Also check if it contains any required phrases from this list: {policy['required_phrases']}.
+Also check accessibility guidelines.
+
+Element Type: {element['element_type']}
+Element Text: {element['element_text']}
+Line Number: {element.get('line_number', '')}
+Parent Tag: {element.get('parent', '')}
+
+Policy:
+- Prohibited terms: {policy['prohibited_terms']}
+- Required phrases: {policy['required_phrases']}
+- Accessibility guidelines: {policy['accessibility_guidelines']}
+
+Respond with:
+- Compliance Status: Compliant / Needs Review / Non-Compliant
+- Reason (always specify why if Non-Compliant, including which prohibited term or required phrase is missing)
+- Suggested Correction (if any)
+"""
+    api_url = "http://localhost:11434/api/generate"
+    payload = {
+        "model": "llama3.2",
+        "prompt": prompt,
+        "stream": False
+    }
+    response = requests.post(api_url, json=payload)
+    if response.status_code != 200:
+        print("Ollama API error:", response.status_code, response.text)
+        return ""
+    try:
+        result = response.json()
+        generated_text = result.get("response", "")
+    except Exception as e:
+        print("JSON decode error:", e)
+        return ""
+    return generated_text
     # Strict Python-side check for prohibited terms
     for term in policy['prohibited_terms']:
         if term.lower() in element['element_text'].lower():
