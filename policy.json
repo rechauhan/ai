@@ -1,0 +1,11 @@
+{
+  "prohibited_terms": ["Superuser", "Submit Now"],
+  "required_phrases": ["Email Address", "User Role"],
+  "accessibility_guidelines": [
+    "Use alt text for images",
+    "Ensure sufficient color contrast between text and background",
+    "All form controls must have associated labels"
+ 
+  ]
+}
+

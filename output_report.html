@@ -1,0 +1,77 @@
+<!-- templates/dashboard_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UI Compliance Report</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    .compliant { background-color: #d4edda; }
+    .non-compliant { background-color: #f8d7da; }
+    .needs-review { background-color: #fff3cd; }
+  </style>
+</head>
+<body>
+  <h1>UI Compliance Report</h1>
+  <table>
+    <tr>
+      <th>Element Type</th>
+      <th>Text</th>
+      <th>Status</th>
+      <th>Reason</th>
+      <th>Suggestion</th>
+    </tr>
+    
+    <tr class="compliant">
+      <td>label</td>
+      <td>Email Address</td>
+      <td>Compliant</td>
+      <td>The element's text contains the required phrase 'Email Address', which meets the policy requirement.</td>
+      <td>None, as the element is compliant with the given requirements.</td>
+    </tr>
+    
+    <tr class="compliant">
+      <td>label</td>
+      <td>User Role</td>
+      <td>Compliant</td>
+      <td>The label's text does not contain either of the required phrases 'Email Address' or 'User Role'.</td>
+      <td>None</td>
+    </tr>
+    
+    <tr class="non-compliant">
+      <td>button</td>
+      <td>Submit Now</td>
+      <td>Non-Compliant</td>
+      <td>Prohibited term 'Submit Now' found in element text. This term is not allowed by company policy.</td>
+      <td>Remove or replace 'Submit Now'.</td>
+    </tr>
+    
+    <tr class="non-compliant">
+      <td>option</td>
+      <td>Admin</td>
+      <td>Non-Compliant</td>
+      <td>The element's text 'Admin' does not contain either of the required phrases ['Email Address', 'User Role']. Furthermore, since this is an option in a select element, it doesn't have associated labels as per the accessibility guidelines.</td>
+      <td>1. Ensure that all options in the select element are labeled with descriptions that include either 'Email Address' or 'User Role'.</td>
+    </tr>
+    
+    <tr class="non-compliant">
+      <td>option</td>
+      <td>Superuser</td>
+      <td>Non-Compliant</td>
+      <td>Prohibited term 'Superuser' found in element text. This term is not allowed by company policy.</td>
+      <td>Remove or replace 'Superuser'.</td>
+    </tr>
+    
+    <tr class="non-compliant">
+      <td>option</td>
+      <td>Guest</td>
+      <td>Non-Compliant</td>
+      <td>The element text 'Guest' does not contain either of the required phrases ['Email Address', 'User Role'].</td>
+      <td>Update the element text to include one of the required phrases, such as "No Email Address" or a clear indication of user role (e.g., "Public User").</td>
+    </tr>
+    
+  </table>
+</body>
+</html>

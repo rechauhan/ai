@@ -1,0 +1,37 @@
+<!-- templates/dashboard_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UI Compliance Report</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    .compliant { background-color: #d4edda; }
+    .non-compliant { background-color: #f8d7da; }
+    .needs-review { background-color: #fff3cd; }
+  </style>
+</head>
+<body>
+  <h1>UI Compliance Report</h1>
+  <table>
+    <tr>
+      <th>Element Type</th>
+      <th>Text</th>
+      <th>Status</th>
+      <th>Reason</th>
+      <th>Suggestion</th>
+    </tr>
+    {% for item in results %}
+    <tr class="{{ item.status_class }}">
+      <td>{{ item.element_type }}</td>
+      <td>{{ item.element_text }}</td>
+      <td>{{ item.status }}</td>
+      <td>{{ item.reason }}</td>
+      <td>{{ item.suggestion }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
